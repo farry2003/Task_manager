@@ -1,33 +1,29 @@
-var added = new Vue({
-    el: '#added',
-    data: {
-      todos: []
-    }
-  })
-
-var insert = new Vue({
-  el: '#insert',
-  data: {
-    message: document.getElementById('entry').value
+new Vue({
+el: '#app',
+data: {
+  newTodo: '',
+  todos: [],
+},
+methods: {
+  addTodo() {
+    this.todos.push({ text: this.newTodo, completed: false });
+    this.newTodo = '';
   },
-  methods: {
-    reset: () => {
-      insert.message = ""
+},
+mounted() {
+  if (localStorage.getItem('todos')) this.todos = JSON.parse(localStorage.getItem('todos'));
+},
+watch: {
+  todos: {
+    handler() {
+      localStorage.setItem('todos', JSON.stringify(this.todos));
     },
-    add: () => {
-      if(insert.message) {
-        added.todos.push({text: insert.message})
-        insert.reset()
-      }
-    }
-  }
-})
+    deep: true,
+  },
+},
+});
 
-const entry = document.getElementById('entry')
-
-entry.addEventListener('keypress', (event) => {
-  let enter = event.key == 'Enter' ? true : false
-  if(enter) {
-    insert.add()
-  }
-})
+const clearLocalStorage = () => {
+localStorage.clear()
+location.reload()
+}
