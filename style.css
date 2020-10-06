@@ -56,7 +56,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   -webkit-animation: fadein 2s;
   animation: fadein 2s;
 }
@@ -83,12 +82,28 @@ body {
   outline: none;
   border: none;
   padding: 20px 0;
-
   font-weight: 600;
-
   border-radius: 10px;
-
   width: 1000px;
+
+  box-shadow: 1px 1px 5px rgb(255,255,255,0.5);
+}
+
+#add {
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  outline: none;
+  background: white;
+  color: grey;
+  box-shadow: 1px 1px 5px rgb(255,255,255,0.5);
+}
+
+#add:hover {
+  background: black;
+  color: white;
 }
 
 #todos {
@@ -105,7 +120,9 @@ body {
   font-weight: 600;
 }
 
-.completed { text-decoration: line-through; }
+.completed { 
+  text-decoration: line-through;
+}
 
 #btnClear {
   border: none;
@@ -118,7 +135,6 @@ body {
   color: white;
   font-size: 1.5em;
   font-weight: 600;
-  
 }
 
 /* RESPONSIVE */

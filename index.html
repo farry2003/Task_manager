@@ -16,6 +16,7 @@
         <div id="top">
             <div id="title">Tasks</div>
         <input id="entry" maxlength="50" placeholder="Type here" v-model="newTodo" @keydown.enter="addTodo">
+        <button id="add" v-on:click="addTodo">+</button>
         </div>
         <div id="todos">
             <span class="todo" v-for="todo in todos" :class="{ completed: todo.completed }">

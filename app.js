@@ -6,8 +6,10 @@ data: {
 },
 methods: {
   addTodo() {
-    this.todos.push({ text: this.newTodo, completed: false });
-    this.newTodo = '';
+    if(this.newTodo !== '') {
+      this.todos.push({ text: this.newTodo, completed: false });
+      this.newTodo = '';
+    }
   },
 },
 mounted() {
