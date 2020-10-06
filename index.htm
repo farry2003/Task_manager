@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Tasks</title>
+</head>
+<body>
+    <div id="bg">
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+    </div>
+    <div id="app">
+        <div id="title">Tasks</div>
+        <div id="insert">
+            <input v-model="message" id="entry" type="text" placeholder="Write something...">
+            <button v-on:click="add" id="add">+</button>
+        </div>
+        <div id="added">
+            <div class="tasks" v-for="todo in todos">
+                <p>
+                    {{ todo.text }}
+                </p><input type="checkbox" name="" id="">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
