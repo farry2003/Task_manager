@@ -18,7 +18,8 @@ body {
 /* BACKGROUND */
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  /* background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%); */
+  background-image: linear-gradient(-60deg, #000 50%, #212529 50%);
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -75,6 +76,14 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+#subtitle {
+  color: white;
+}
+
+#subtitle a {
+  color: white;
+}
+
 #entry {
   margin: 10px 0;
   font-size: 20px;
@@ -87,7 +96,7 @@ body {
   width: 1000px;
   color: grey;
 
-  box-shadow: 1px 1px 5px rgb(255,255,255,0.5);
+  box-shadow: 1px 1px 5px rgb(0,0,0,0.5);
 }
 
 #add {
@@ -99,7 +108,7 @@ body {
   outline: none;
   background: white;
   color: grey;
-  box-shadow: 1px 1px 5px rgb(255,255,255,0.5);
+  box-shadow: 1px 1px 5px rgb(0,0,0,0.5);
 }
 
 #add:hover {
@@ -113,6 +122,12 @@ body {
   align-items: center;
   text-align: left;
   color: white;
+  width: 100%;
+}
+
+.taskContent {
+  word-break: break-word;
+  text-align: center;
 }
 
 .delete {
@@ -133,17 +148,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px;
+
+  background: rgb(0,0,0, 1);
+  border-radius: 10px;
 }
 
 .completed { 
-  text-decoration: line-through;
+  background: #006400;
+}
+
+#octicon {
+  filter: invert(1);
+  margin-top: 15px;
+}
+
+#nickname {
+  font-size: 10px;
 }
 
 #btnClear {
   border: none;
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
-  width: 100%;
+  width: 100VW;
   background: rgb(0,0,0,0.8);
   position: fixed;
   bottom: 0;
@@ -154,9 +182,32 @@ body {
 
 /* RESPONSIVE */
 
+@media only screen and (max-width: 2560px) {
+  #entry {
+    padding: 15px 0;
+    width: 1080px;
+  }
+  .todo {
+    width: 980px;
+  }
+}
+
+@media only screen and (max-width: 1920px) {
+  #entry {
+    padding: 15px 0;
+    width: 1080px;
+  }
+  .todo {
+    width: 980px;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   #entry {
     padding: 15px 0;
+    width: 600px;
+  }
+  .todo {
     width: 600px;
   }
 }
@@ -166,11 +217,17 @@ body {
     padding: 13px 0;
     width: 400px;
   }
+  .todo {
+    width: 400px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   #entry {
     padding: 10px 0;
+    width: 280px;
+  }
+  .todo {
     width: 280px;
   }
 }
@@ -180,11 +237,17 @@ body {
     padding: 10px 0;
     width: 200px;
   }
+  .todo {
+    width: 200px;
+  }
 }
 
 @media only screen and (max-width: 200px) {
   #entry {
     padding: 10px 0;
+    width: 150px;
+  }
+  .todo {
     width: 150px;
   }
 }
