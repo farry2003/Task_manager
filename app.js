@@ -1,8 +1,13 @@
-new Vue({
+let entry = document.getElementById('entry')
+
+entry.autofocus = true
+
+var list = new Vue({
 el: '#app',
 data: {
   newTodo: '',
   todos: [],
+  lastIndex: 0,
 },
 methods: {
   addTodo() {
@@ -11,6 +16,9 @@ methods: {
       this.newTodo = '';
     }
   },
+  removeTodo(index) {
+    this.todos.splice(index, 1);
+  }
 },
 mounted() {
   if (localStorage.getItem('todos')) this.todos = JSON.parse(localStorage.getItem('todos'));
@@ -23,9 +31,14 @@ watch: {
     deep: true,
   },
 },
-});
+})
 
-const clearLocalStorage = () => {
-localStorage.clear()
-location.reload()
-}
+new Vue({
+  el: '#btnClear',
+  methods: {
+    clearLocalStorage: () => {
+      localStorage.clear()
+      location.reload()
+    }
+  }
+})
