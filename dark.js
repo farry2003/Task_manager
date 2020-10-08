@@ -1,19 +1,50 @@
+const bg = document.getElementsByClassName('bg')[0]
+const bg2 = document.getElementsByClassName('bg2')[0]
+const bg3 = document.getElementsByClassName('bg3')[0]
+
 const Theme = {
-  isDark: () => {
+  setBackground(v) {
+    bg.style.background = v
+  },
+  setBackgroundImage(v) {
+    bg.style.backgroundImage = v
+  },
+  setOpacity(v) {
+    bg.style.opacity = v
+  },
+  playAnimation() {
+    bg2.style.display = 'block'
+    bg3.style.display = 'block'
+  },
+  stopAnimation() {
+    bg2.style.display = 'none'
+    bg3.style.display = 'none'
+  },
+  Standard() {
+    Theme.setOpacity(StandardTheme.opacity)
+    Theme.playAnimation()
+  },
+  Dark() {
+    Theme.setBackground(DarkTheme.background)
+    Theme.setOpacity(DarkTheme.opacity)
+    Theme.stopAnimation()
+  }
+}
+const StandardTheme = {
+  opacity: 0.5
+}
+const DarkTheme = {
+  background: '#363946',
+  opacity: 1,
+  isActive: () => {
     return document.getElementById('dark').checked
   }
 }
 document.addEventListener("change", () => {
-  if(Theme.isDark()) {
-    document.getElementsByClassName('bg')[0].style.background = "#363946"
-    document.getElementsByClassName('bg')[0].style.opacity = "1"
-    document.getElementsByClassName('bg2')[0].style.display = "none"
-    document.getElementsByClassName('bg3')[0].style.display = "none"
+  if(DarkTheme.isActive()) {
+    Theme.Dark()
   }
   else {
-    document.getElementsByClassName('bg')[0].style.backgroundImage = 'linear-gradient(-60deg, #153b3d 50%, #3c6e71 50%)'
-    document.getElementsByClassName('bg')[0].style.opacity = "0.5"
-    document.getElementsByClassName('bg2')[0].style.display = "block"
-    document.getElementsByClassName('bg3')[0].style.display = "block"
+    Theme.Standard()
   }
 })
