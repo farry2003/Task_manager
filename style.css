@@ -1,24 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 body {
-    width: 100vw;
-    height: 100vh;
-
-    padding: 0;
-    margin: 0;
-
-    font-family: 'Montserrat', sans-serif;
-
-    display: flex;
-    justify-content: center;
-    
-    font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
-
-/* BACKGROUND */
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  /* background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%); */
   background-image: linear-gradient(-60deg, #153b3d 50%, #3c6e71 50%);
   bottom:0;
   left:-50%;
@@ -28,31 +20,13 @@ body {
   top:0;
   z-index:-1;
 }
-
 .bg2 {
   animation-direction:alternate-reverse;
   animation-duration:4s;
 }
-
 .bg3 {
   animation-duration:5s;
 }
-
-@keyframes slide {
-  0% {
-    transform:translateX(-25%);
-  }
-  100% {
-    transform:translateX(25%);
-  }
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-/* /BACKGROUND */
-
 #app {
   display: flex;
   flex-direction: column;
@@ -60,14 +34,12 @@ body {
   -webkit-animation: fadein 2s;
   animation: fadein 2s;
 }
-
 #top {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 20px;
 }
-
 #title {
   text-align: center;
   font-size: 4em;
@@ -75,15 +47,65 @@ body {
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
-
 #subtitle {
   color: white;
 }
-
-#subtitle a {
-  color: white;
+#nickname {
+  font-size: 10px;
 }
-
+#actions {
+  margin: 15px 0;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #000;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #000;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
 #entry {
   margin: 10px 0;
   font-size: 20px;
@@ -95,21 +117,8 @@ body {
   border-radius: 10px;
   width: 1000px;
   color: black;
-
   box-shadow: 1px 1px 5px rgb(0,0,0,0.5);
 }
-
-#actions {
-  margin: 15px 0;
-}
-
-.action {
-  padding: 15px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
 #add {
   border: none;
   border-radius: 20px;
@@ -119,14 +128,11 @@ body {
   outline: none;
   background: rgb(0,0,0,0);
   color: grey;
-  /* box-shadow: 1px 1px 5px rgb(0,0,0,0.5); */
 }
-
 #add:hover {
   background: rgb(0,0,0,0.1);
   color: white;
 }
-
 #todos {
   display: flex;
   flex-direction: column;
@@ -135,12 +141,26 @@ body {
   color: white;
   width: 100%;
 }
-
+.todo {
+  width: 100%;
+  margin: 5px 0;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background: rgb(0,0,0, 1);
+  border-radius: 10px;
+}
+.completed { 
+  background: rgb(255,255,255,0.1);
+  color: rgb(255,255,255,0.2);
+}
 .taskContent {
   word-break: break-word;
   text-align: center;
 }
-
 .delete {
   border: none;
   padding: 5px 10px;
@@ -149,36 +169,10 @@ body {
   outline: none;
   font-size: 20px;
 }
-
-.todo {
-  width: 100%;
-  margin: 5px 0;
-  font-size: 20px;
-  font-weight: 600;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-
-  background: rgb(0,0,0, 1);
-  border-radius: 10px;
-}
-
-.completed { 
-  background: rgb(255,255,255,0.1);
-  color: rgb(255,255,255,0.2);
-}
-
 #octicon {
   filter: invert(1);
   margin-top: 15px;
 }
-
-#nickname {
-  font-size: 10px;
-}
-
 #btnClear {
   border: none;
   font-family: 'Montserrat', sans-serif;
@@ -191,9 +185,6 @@ body {
   font-size: 1.5em;
   font-weight: 600;
 }
-
-/* RESPONSIVE */
-
 @media only screen and (max-width: 2560px) {
   #entry {
     padding: 15px 0;
@@ -203,7 +194,6 @@ body {
     width: 980px;
   }
 }
-
 @media only screen and (max-width: 1920px) {
   #entry {
     padding: 15px 0;
@@ -213,7 +203,6 @@ body {
     width: 980px;
   }
 }
-
 @media only screen and (max-width: 1200px) {
   #entry {
     padding: 15px 0;
@@ -223,7 +212,6 @@ body {
     width: 600px;
   }
 }
-
 @media only screen and (max-width: 700px) {
   #entry {
     padding: 13px 0;
@@ -233,7 +221,6 @@ body {
     width: 400px;
   }
 }
-
 @media only screen and (max-width: 500px) {
   #entry {
     padding: 10px 0;
@@ -243,7 +230,6 @@ body {
     width: 280px;
   }
 }
-
 @media only screen and (max-width: 300px) {
   #entry {
     padding: 10px 0;
@@ -253,7 +239,6 @@ body {
     width: 200px;
   }
 }
-
 @media only screen and (max-width: 200px) {
   #entry {
     padding: 10px 0;
@@ -263,71 +248,15 @@ body {
     width: 150px;
   }
 }
-
-/* /RESPONSIVE */
-
-
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
 }
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #000;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #000;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
