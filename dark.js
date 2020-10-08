@@ -1,7 +1,6 @@
-const dark = document.getElementById('dark')
 const Theme = {
   isDark: () => {
-    return dark.checked
+    return document.getElementById('dark').checked
   }
 }
 document.addEventListener("change", () => {
