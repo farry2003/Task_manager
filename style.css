@@ -68,7 +68,7 @@ body {
   height: 0;
 }
 .slider {
-  position: absolute;
+  position:absolute;
   cursor: pointer;
   top: 0;
   left: 0;
@@ -110,8 +110,8 @@ input:checked + .slider:before {
   margin: 10px 0;
   font-size: 20px;
   text-align: center;
-  outline: none;
-  border: none;
+  outline:rgb(25, 25, 236);
+  border: black;
   padding: 20px 0;
   font-weight: 500;
   border-radius: 10px;
@@ -259,4 +259,10 @@ input:checked + .slider:before {
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+/* #demo{
+  margin-block: 30px 10px;
+  display:flex;
+
+} ;
 }

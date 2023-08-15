@@ -48,3 +48,4 @@ document.addEventListener("change", () => {
     Theme.Standard()
   }
 })
+
