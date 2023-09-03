@@ -42,19 +42,21 @@
 
             <input id="entry" maxlength="140" v-model="newTodo" @keydown.enter="addTodo"
                 placeholder="Enter Todays  the task.....">
-            <button id="add" v-on:click="addTodo">📌</button>
+            <button id="add" v-on:click="addTodo">📌</button>           
         </div>
         <div id="todos">
             <span class="todo" v-for="(todo, index) in todos" :class="{ completed: todo.completed }">
                 <input type="checkbox" v-model="todo.completed">
                 <span class="taskContent">{{ todo.text }}</span>
                 <button v-on:click="removeTodo(index)" class="delete">💣</button>
+                <button id ="editableContent" v-on:click="addTodo">📝</button>
+
             </span>
         </div>
 
     </div>
     <button id="btnClear" v-on:click="clearLocalStorage">delete ALL tasks </button>
-    <div id="subtitle" style="margin-top: 40%;margin-left: -15%;">Made by <b>FARHAN RAYHAN</b> </div>
+    <div id="subtitle" style="margin-top: 40%;margin-left: -1%;">Made by <b>FARHAN RAYHAN</b> </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>

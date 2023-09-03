@@ -15,7 +15,7 @@ setInterval(() => {
 
     }
     else if (currentTime.getHours() < 10) {
-        hrs.innerHTML = '0' + currentTime.getHours();
+        hrs.innerHTML =  currentTime.getHours();
     }
     else {
         hrs.innerHTML = currentTime.getHours();
